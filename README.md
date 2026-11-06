@@ -30,7 +30,7 @@ me = {
     "specialises":  ["computer vision", "NLP / LLMs", "tabular ML", "end-to-end MLOps"],
     "philosophy":   "a model that doesn't ship is a model that doesn't matter",
     "looking_for":  "Data Science / ML Engineer roles · 2026 onwards",
-    "currently":    "building AQI MLOps pipeline · AWS + MLflow + Evidently + CI/CD",
+    "currently":    "shipped Pakistan Car Price MLOps pipeline · AWS EC2 + MLflow + SHAP + CI/CD",
 }
 ```
 
@@ -38,7 +38,7 @@ me = {
 
 > Final-year DS student who treats every project as a **system**, not a notebook.
 > 8 deployed full-stack ML apps · 1 hackathon win · active FYP shipping computer vision to production.
-> Currently expanding into **MLOps** — AWS ECS, MLflow tracking, CI/CD, and real-time drift monitoring.
+> Hands-on with **MLOps** — AWS EC2, MLflow tracking, GitHub Actions CI/CD, and drift detection.
 
 ---
 
@@ -70,7 +70,7 @@ me = {
 | `006` | **AstroLifeQuest · Exoplanet** | XGBoost, SHAP, NASA Kepler | Physics-informed score | habitability engine | ✅ live |
 | `007` | **TheDocumentTimes** | BERT fine-tune vs LSTM, 20 Newsgroups | Accuracy | BERT wins | ✅ live |
 | `008` | **AutoCop · AI Traffic Monitor** *(FYP)* | YOLOv11, FastAPI, Postgres, Next.js | Detection | **95%+** · 6+ violations | 🔧 in progress |
-| `009` | **AQI MLOps Pipeline** *(building now)* | XGBoost, MLflow, AWS ECS, Evidently, GH Actions | MAE | live OpenAQ data · Islamabad | 🚧 building |
+| `009` | **Pakistan Car Price MLOps Pipeline** | XGBoost, MLflow, SHAP, FastAPI, Docker, AWS EC2, GH Actions | MAPE | **10.85%** · 7,995 listings | ✅ shipped |
 
 ---
 
@@ -142,24 +142,24 @@ deployment:   live web app
 
 ---
 
-### `experiment_009` &nbsp;·&nbsp; AQI MLOps Pipeline *(in progress)*
+### `experiment_009` &nbsp;·&nbsp; Pakistan Car Price MLOps Pipeline
 
-> Production MLOps system predicting air quality index for Islamabad using live sensor data. Full experiment tracking, cloud deployment, CI/CD, and automated drift monitoring.
+> Production MLOps system predicting used-car prices in Pakistan. Experiment tracking, explainability, containerized deployment on AWS, CI/CD, and drift detection with an automated retrain-to-deploy cycle.
 
 ```yaml
-data_source:     OpenAQ API (live, hourly) + OpenWeatherMap
-model:           XGBoost regressor
+data:            7,995 Pakistan car listings
+model:           XGBoost regressor · MAPE 10.85%
+explainability:  SHAP
 tracking:        MLflow · experiment registry · model versioning
-deployment:      FastAPI → Docker → AWS ECR → AWS ECS Fargate
-ci_cd:           GitHub Actions · auto-deploy on merge to main
-monitoring:      Evidently AI · hourly drift detection
-alerting:        drift detected → auto retrain → MLflow logs → redeploy
-storage:         AWS S3 (artifacts) · AWS RDS PostgreSQL (predictions)
+deployment:      FastAPI → Docker → AWS EC2
+ci_cd:           GitHub Actions · 5-job retrain-to-deploy cycle
+monitoring:      drift detection
+status:          shipped ✓
 ```
 
 > *"The model that monitors itself."*
 
-**→** `[repo coming soon]`
+**→** [`code`](https://github.com/MurtazaMajid/Pak-wheels-car-price-prediction-full-mlops-pipeline-) &nbsp;·&nbsp; [`live demo`](https://pakistan-car-insight.lovable.app/)
 
 ---
 
@@ -186,9 +186,9 @@ import nltk, spacy, shap
 from groq import LLaMA_3_3_70B
 
 # mlops  ← expanding here
-import mlflow, evidently
+import mlflow
 from docker import Container
-from aws import ECS, ECR, S3, RDS
+from aws import EC2
 from github_actions import CI, CD
 
 # shipping
@@ -278,7 +278,7 @@ import supabase, postgresql
 ```python
 goals_2026 = [
     "ship AutoCop FYP to production  ← in progress",
-    "complete AQI MLOps pipeline on AWS  ← in progress",
+    "ship an end-to-end MLOps pipeline on AWS  ← done: Pakistan Car Price",
     "land a Data Science / ML Engineer role",
     "earn AWS Cloud Practitioner certification",
     "publish 1 deployed app per quarter",
@@ -286,7 +286,7 @@ goals_2026 = [
     "contribute meaningfully to one open-source ML library",
 ]
 
-current_focus   = "MLOps · AWS + MLflow + Evidently + GitHub Actions CI/CD"
+current_focus   = "MLOps · AWS + MLflow + GitHub Actions CI/CD"
 open_to         = "remote / on-site · DS / MLE / AI Engineer roles · 2026"
 ```
 
